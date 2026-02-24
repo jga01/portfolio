@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { CustomCursor } from "@/components/ui/Cursor";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { PageTransition } from "@/components/ui/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +17,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Tiago Goossen — Fullstack Engineer",
   description:
-    "Fullstack engineer building production systems from 3D graphics engines in C to enterprise AI-powered SaaS platforms. Based in Fortaleza, Brazil.",
+    "Fullstack engineer shipping multi-tenant SaaS, AI agent systems, and marketplaces.",
   keywords: [
     "fullstack developer",
     "software engineer",
@@ -34,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tiago Goossen — Fullstack Engineer",
     description:
-      "Fullstack engineer building production systems from 3D graphics engines in C to enterprise AI-powered SaaS platforms.",
+      "Fullstack engineer shipping multi-tenant SaaS, AI agent systems, and marketplaces.",
     type: "website",
     locale: "en_US",
     siteName: "Tiago Goossen Portfolio",
@@ -43,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tiago Goossen — Fullstack Engineer",
     description:
-      "Fullstack engineer building production systems from 3D graphics engines in C to enterprise AI-powered SaaS platforms.",
+      "Fullstack engineer shipping multi-tenant SaaS, AI agent systems, and marketplaces.",
   },
   robots: "index, follow",
 };
@@ -56,11 +63,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <SmoothScroll>
           <Navbar />
-          {children}
+          <PageTransition>{children}</PageTransition>
           <GrainOverlay />
           <CustomCursor />
         </SmoothScroll>

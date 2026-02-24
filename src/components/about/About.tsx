@@ -1,6 +1,8 @@
 "use client";
 
+import { motion } from "motion/react";
 import { SectionReveal } from "@/components/ui/SectionReveal";
+import Image from "next/image";
 
 export function About() {
   return (
@@ -13,43 +15,72 @@ export function About() {
         </SectionReveal>
 
         <SectionReveal delay={0.1}>
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-8">
-            A bit about me
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2 font-display">
+            How I got here
           </h2>
+          <motion.div
+            className="h-px mb-8 bg-gradient-to-r from-accent via-accent/50 to-transparent"
+            initial={{ scaleX: 0, originX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
         </SectionReveal>
 
-        <div className="space-y-6 text-lg text-neutral-400 leading-relaxed">
-          <SectionReveal delay={0.2}>
-            <p>
-              I&apos;m a fullstack engineer based in Fortaleza, Brazil, currently
-              pursuing a CS degree at Unifor. My work spans a pretty wide range
-              — I&apos;ve built a 3D graphics engine from scratch in C, architected
-              multi-tenant enterprise SaaS platforms, and shipped AI-powered
-              agent systems to production.
-            </p>
+        <div className="flex flex-col md:flex-row gap-10 items-start">
+          {/* Photo */}
+          <SectionReveal delay={0.15} direction="left">
+            <div className="shrink-0 mx-auto md:mx-0">
+              <motion.div
+                className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-neutral-700"
+                whileHover={{
+                  borderColor: "rgba(229, 126, 58, 0.6)",
+                  boxShadow: "0 0 30px rgba(229, 126, 58, 0.15)",
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  src="/photo.jpeg"
+                  alt="Tiago Goossen"
+                  fill
+                  className="object-cover"
+                  sizes="160px"
+                  priority
+                />
+              </motion.div>
+            </div>
           </SectionReveal>
 
-          <SectionReveal delay={0.3}>
-            <p>
-              Right now I&apos;m building at{" "}
-              <span className="text-neutral-200">Blis AI</span>, where I work
-              across the full stack of a travel management platform — from .NET
-              APIs to React frontends to Python multi-agent orchestration. I also
-              co-founded{" "}
-              <span className="text-neutral-200">HabilitAqui</span>, a driving
-              instructor marketplace that I built end-to-end and shipped in 40
-              days.
-            </p>
-          </SectionReveal>
+          <div className="space-y-6 text-lg text-neutral-400 leading-relaxed">
+            <SectionReveal delay={0.2}>
+              <p>
+                I started as an intern at Instituto Atlantico in 2022, working on .NET and Angular
+                for enterprise clients. After being promoted to systems analyst, I contributed to
+                architecture and feature development for large-scale applications.
+              </p>
+            </SectionReveal>
 
-          <SectionReveal delay={0.4}>
-            <p>
-              I care about understanding things deeply. Whether it&apos;s writing GLSL
-              shaders to learn how GPUs actually render, or diving into CQRS
-              patterns to build maintainable enterprise systems — I&apos;d rather know
-              how something works than just use it.
-            </p>
-          </SectionReveal>
+            <SectionReveal delay={0.3}>
+              <p>
+                Currently I&apos;m a fullstack developer at{" "}
+                <span className="text-neutral-200">Blis AI</span> — an enterprise travel SaaS
+                with multi-agent AI, .NET 8, Next.js, and LangGraph — and at{" "}
+                <span className="text-neutral-200">Kortex</span>, a vehicle protection SaaS with
+                database-per-tenant architecture, NestJS, and 30K+ boletos/month. Kortex is where
+                I learned the most about building products end-to-end. I also co-founded{" "}
+                <span className="text-neutral-200">Habilitaqui</span>, a driving instructor
+                marketplace.
+              </p>
+            </SectionReveal>
+
+            <SectionReveal delay={0.4}>
+              <p>
+                I&apos;m pursuing my CS degree at Unifor. I care about understanding things
+                deeply — which is why I built a 3D engine with raw OpenGL and an autonomous AI
+                agent that handles tasks while I sleep.
+              </p>
+            </SectionReveal>
+          </div>
         </div>
       </div>
     </section>

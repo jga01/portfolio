@@ -14,15 +14,23 @@ export function Contact() {
         </SectionReveal>
 
         <SectionReveal delay={0.1}>
-          <h2 className="text-3xl md:text-5xl font-bold text-neutral-100 mb-6">
-            Let&apos;s work together
+          <h2 className="text-3xl md:text-5xl font-bold text-neutral-100 mb-2 font-display">
+            Get in touch
           </h2>
+          <motion.div
+            className="h-px mb-6 mx-auto max-w-xs bg-gradient-to-r from-transparent via-accent to-transparent"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
         </SectionReveal>
 
         <SectionReveal delay={0.2}>
-          <p className="text-lg text-neutral-400 mb-10 max-w-md mx-auto">
-            I&apos;m always open to new opportunities and interesting projects.
-            Feel free to reach out.
+          <p className="text-lg text-neutral-400 mb-10 max-w-lg mx-auto">
+            I&apos;m interested in multi-tenant systems, AI agent architectures, and
+            fast-paced product builds. If that&apos;s what you&apos;re working on, I want
+            to hear about it.
           </p>
         </SectionReveal>
 
@@ -56,9 +64,9 @@ export function Contact() {
               </svg>
             </motion.a>
 
-            {/* LinkedIn */}
+            {/* LinkedIn — FIXED URL */}
             <motion.a
-              href="https://linkedin.com/in/tiago-goossen"
+              href="https://www.linkedin.com/in/tiago-de-andrade-36050517a/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}
@@ -106,7 +114,7 @@ export function Contact() {
 
         <SectionReveal delay={0.5}>
           <p className="mt-20 text-xs text-neutral-600">
-            Built with Next.js, Tailwind CSS, Framer Motion & Three.js
+            Handcrafted with Next.js, Tailwind, Motion &amp; Three.js
           </p>
         </SectionReveal>
       </div>

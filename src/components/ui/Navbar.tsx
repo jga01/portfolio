@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -16,10 +17,15 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      if (!isHome) return;
 
       const sections = navItems.map((item) => item.href.slice(1));
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -34,12 +40,25 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (isHome) {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/" + href);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push("/");
+    }
   };
 
   return (
@@ -57,11 +76,8 @@ export function Navbar() {
       >
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
           <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+            href="/"
+            onClick={handleLogoClick}
             className="text-lg font-bold tracking-tight text-neutral-100 hover:text-accent transition-colors"
           >
             TG

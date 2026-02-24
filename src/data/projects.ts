@@ -87,7 +87,7 @@ export const projects: Project[] = [
   },
   {
     slug: "habilitaqui",
-    title: "HabilitAqui",
+    title: "Habilitaqui",
     subtitle: "Driving Instructor Marketplace",
     description:
       "Full marketplace connecting students with autonomous driving instructors after Brazil's Contran 1.020/2025 regulation.",
@@ -106,16 +106,16 @@ export const projects: Project[] = [
       "Docker",
     ],
     highlights: [
-      "132 commits in 40 days, solo full-stack build",
+      "Solo full-stack build, 22 DB models, 60 API routes",
       "22 DB models, 60 API routes",
       "Stripe Connect payments (PIX + card)",
       "Real-time chat with Socket.IO",
-      "$32/year hosting cost",
+      "Deployed on Cloudflare R2 + Docker",
     ],
     problem:
-      "Brazil's new regulation (Contran 1.020/2025) legalized autonomous driving instructors, creating a fragmented market of 86K+ instructors with no unified platform.",
+      "A new Brazilian regulation suddenly legalized 86K+ autonomous driving instructors, but no platform existed. I saw the gap and built one.",
     solution:
-      "Built a complete marketplace with dual booking flows, Stripe Connect payments supporting both PIX and card, real-time chat, instructor verification, and review system. Shipped in 40 days as sole developer.",
+      "Built a complete marketplace with dual booking flows, Stripe Connect payments supporting both PIX and card, real-time chat, instructor verification, and review system. Built as sole developer.",
     link: "https://habilitaqui.com.br",
     featured: true,
     gridClass: "md:col-span-1 md:row-span-1",
@@ -145,7 +145,7 @@ export const projects: Project[] = [
       "Distributed tracing and observability",
     ],
     problem:
-      "Wanted a personal AI assistant that runs 24/7, handles concurrent tasks autonomously, and learns from its interactions.",
+      "I was constantly context-switching between apps and AI tools. I wanted one system that could take instructions via WhatsApp and just handle it while I sleep.",
     solution:
       "Built a modular daemon that receives instructions via WhatsApp/Telegram, decomposes tasks, orchestrates multiple AI models, and maintains persistent memory with semantic search. Supports 3 concurrent tasks with automatic module generation.",
     github: "https://github.com/jga01/proteus",
@@ -157,20 +157,20 @@ export const projects: Project[] = [
     title: "SeaEel",
     subtitle: "3D Graphics Engine",
     description:
-      "3D rendering engine built from scratch with C and OpenGL, featuring custom shader pipeline and scene management.",
+      "3D rendering engine built from scratch with OpenGL, featuring custom shader pipeline and scene management.",
     role: "Solo Developer",
     period: "2024",
     tech: ["C", "OpenGL", "GLFW", "GLSL Shaders", "Nuklear UI"],
     highlights: [
       "Custom vertex/fragment shader pipeline",
       "3D scene management from scratch",
-      "Written entirely in C — no engine frameworks",
+      "No engine frameworks — everything from first principles",
       "Proves deep understanding beneath abstraction layers",
     ],
     problem:
-      "Wanted to understand graphics programming from the ground up — how GPUs render, how shaders work, how scenes are managed.",
+      "I kept using rendering abstractions without knowing what they actually did. So I decided to build an engine from nothing and find out.",
     solution:
-      "Built a complete 3D rendering engine from scratch using C and OpenGL. Implemented custom shader pipeline, vertex/fragment shaders, scene graph, and debug UI. No engine frameworks — everything from first principles.",
+      "Built a complete 3D rendering engine from scratch using OpenGL and GLSL. Implemented custom shader pipeline, vertex/fragment shaders, scene graph, and debug UI. No engine frameworks — everything from first principles.",
     github: "https://github.com/jga01/seaeel",
     featured: true,
     gridClass: "md:col-span-2 md:row-span-1",
@@ -219,30 +219,54 @@ export const education = {
   location: "Fortaleza, Brazil",
 };
 
-export const skills = {
-  Languages: ["C#", "TypeScript", "JavaScript", "C", "Python", "SQL", "Java"],
+export interface Skill {
+  name: string;
+  level: "daily" | "frequent" | "familiar";
+}
+
+export const skills: Record<string, Skill[]> = {
+  Languages: [
+    { name: "TypeScript", level: "daily" },
+    { name: "C#", level: "daily" },
+    { name: "Python", level: "frequent" },
+    { name: "JavaScript", level: "frequent" },
+    { name: "SQL", level: "frequent" },
+    { name: "Java", level: "familiar" },
+    { name: "C", level: "familiar" },
+  ],
   Frontend: [
-    "Next.js",
-    "React",
-    "Angular",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Zustand",
+    { name: "Next.js", level: "daily" },
+    { name: "React", level: "daily" },
+    { name: "Tailwind CSS", level: "daily" },
+    { name: "Zustand", level: "frequent" },
+    { name: "Angular", level: "familiar" },
+    { name: "Motion", level: "frequent" },
   ],
-  Backend: [".NET 8", "NestJS", "FastAPI", "Node.js", "MediatR"],
+  Backend: [
+    { name: ".NET 8", level: "daily" },
+    { name: "NestJS", level: "daily" },
+    { name: "FastAPI", level: "frequent" },
+    { name: "Node.js", level: "frequent" },
+    { name: "MediatR", level: "frequent" },
+  ],
   "AI / Agents": [
-    "LangGraph",
-    "LangChain",
-    "OpenAI API",
-    "MCP Protocol",
-    "Celery",
+    { name: "LangGraph", level: "daily" },
+    { name: "LangChain", level: "frequent" },
+    { name: "OpenAI API", level: "frequent" },
+    { name: "MCP Protocol", level: "frequent" },
+    { name: "Celery", level: "frequent" },
   ],
-  Databases: ["PostgreSQL", "Redis", "MongoDB", "SQLite"],
+  Databases: [
+    { name: "PostgreSQL", level: "daily" },
+    { name: "Redis", level: "frequent" },
+    { name: "MongoDB", level: "familiar" },
+    { name: "SQLite", level: "familiar" },
+  ],
   DevOps: [
-    "Docker",
-    "Terraform",
-    "AWS (EKS, Lambda, S3)",
-    "GitHub Actions",
-    "Kubernetes",
+    { name: "Docker", level: "daily" },
+    { name: "Terraform", level: "frequent" },
+    { name: "AWS (EKS, Lambda, S3)", level: "frequent" },
+    { name: "GitHub Actions", level: "frequent" },
+    { name: "Kubernetes", level: "familiar" },
   ],
 };
