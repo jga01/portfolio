@@ -55,8 +55,8 @@ export function About() {
             <SectionReveal delay={0.2}>
               <p>
                 I started as an intern at Instituto Atlantico in 2022, working on .NET and Angular
-                for enterprise clients. After being promoted to systems analyst, I contributed to
-                architecture and feature development for large-scale applications.
+                for enterprise clients like Dell. After being promoted to systems analyst, I
+                contributed to architecture and feature development for large-scale applications.
               </p>
             </SectionReveal>
 
