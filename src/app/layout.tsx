@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Tiago Goossen — Fullstack Engineer",
+  title: "Tiago Goossen",
   description:
     "Fullstack engineer shipping multi-tenant SaaS, AI agent systems, and marketplaces.",
   keywords: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
       "Fullstack engineer shipping multi-tenant SaaS, AI agent systems, and marketplaces.",
     type: "website",
     locale: "en_US",
-    siteName: "Tiago Goossen Portfolio",
+    siteName: "Tiago Goossen",
   },
   twitter: {
     card: "summary_large_image",
